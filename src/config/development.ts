@@ -4,7 +4,7 @@ export default {
   // 是否开启swagger
   enableSwagger: true,
   // MySQL配置
-  DATABASE_CONFIG: {
+  db: {
     type: 'mysql',
     host: 'localhost',
     port: 33060,
@@ -14,11 +14,11 @@ export default {
     timezone: 'UTC',
     charset: 'utf8mb4',
     entities: ['src/**/*.entity{.ts,.js}'],
-    synchronize: true,
+    synchronize: false,
     logging: true,
   },
   // Redis配置
-  REDIS_CONFIG: {
+  redis: {
     host: '127.0.0.1',
     port: 6379,
     keyPrefix: '',
