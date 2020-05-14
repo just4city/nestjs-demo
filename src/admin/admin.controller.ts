@@ -10,4 +10,10 @@ export class AdminController {
     const result = await this.adminService.findAll();
     console.log(result);
   }
+
+  @Get('/test')
+  test() {
+    this.adminService.test();
+    return 'haha test';
+  }
 }

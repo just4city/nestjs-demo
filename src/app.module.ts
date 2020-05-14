@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { RedisModule } from 'nestjs-redis';
 import customConfig from './config';
 import { Admins } from './entity/admin.entity';
 import { AdminModule } from './admin/admin.module';
@@ -16,6 +17,10 @@ import { AdminModule } from './admin/admin.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => configService.get('db'),
+      inject: [ConfigService],
+    }),
+    RedisModule.forRootAsync({
+      useFactory: (configService: ConfigService) => configService.get('redis'),
       inject: [ConfigService],
     }),
     AdminModule,

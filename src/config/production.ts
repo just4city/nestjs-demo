@@ -19,8 +19,9 @@ export default {
   },
   // Redis配置
   redis: {
+    name: 'redis',
     host: '127.0.0.1',
-    port: 6379,
+    port: 63790,
     keyPrefix: '',
     family: 4,
     password: '',
