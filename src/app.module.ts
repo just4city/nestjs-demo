@@ -7,6 +7,7 @@ import { RedisModule } from 'nestjs-redis';
 import customConfig from './config';
 import { Admins } from './entity/admin.entity';
 import { AdminModule } from './admin/admin.module';
+import { AdminService } from './admin/admin.service';
 
 @Module({
   imports: [
@@ -24,9 +25,9 @@ import { AdminModule } from './admin/admin.module';
       inject: [ConfigService],
     }),
     AdminModule,
-    // TypeOrmModule.forFeature([Admins]),
+    TypeOrmModule.forFeature([Admins]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AdminService],
 })
 export class AppModule {}

@@ -15,7 +15,7 @@ export default {
     charset: 'utf8mb4',
     entities: ['src/**/*.entity{.ts,.js}'],
     synchronize: false,
-    logging: true,
+    logging: false,
   },
   // Redis配置
   redis: {
